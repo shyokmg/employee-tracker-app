@@ -1,5 +1,5 @@
 const express = require('express');
-const sequelize = require('./config/connection.js');
+// const sequelize = require('./config/connection.js');
 
 const CLI = require('./lib/cli.js');
 const cli = new CLI();
