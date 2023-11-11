@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const figlet = require('figlet');
-const HandleQuery = require('./handleQuery.js');
+const HandleQuery = require('../models/handleQuery.js');
+const SelectQuery = require('../models/selectQuery.js')
 
 
 
@@ -43,41 +44,40 @@ class CLI {
                     name: 'salary',
                     message: 'What is the salary of the role?'
                 },
-                {
-                    type: 'list',
-                    name: 'name',
-                    message: 'Which department does the role belong to?',
-                    choices: departmentList,
-                    loop: false
-                }
+                // {
+                //     type: 'list',
+                //     name: 'name',
+                //     message: 'Which department does the role belong to?',
+                //     choices: departmentList,
+                //     loop: false
+                // }
         ]
 
             let exit = false;
             while (!exit) {
                 const handleQuery = new HandleQuery();
+                const selectQuery = new SelectQuery();
                 const answers = await inquirer.prompt(mainOptions);
                 const selectedOption = answers.options;
-                const sqlEmployee = `SELECT e.id, e.first_name AS first_name, e.last_name AS last_name, role.title AS title, department.name AS department, role.salary AS salary, CONCAT_WS(' ', COALESCE(m.first_name, 'null'), m.last_name) AS  manager FROM employee e LEFT JOIN role ON e.role_id = role.id LEFT JOIN department ON role.department_id = department.id LEFT JOIN employee m ON e.manager_id = m.id ORDER by e.id`;
-                const sqlRole = `SELECT role.id AS id, role.title AS title, department.name AS department, role.salary AS salary FROM role LEFT JOIN department ON role.department_id = department.id ORDER by role.id`;
-                const sqlDepartment = `SELECT * FROM department ORDER by name`;
+
 
                 switch (selectedOption) {
                     case 'View All Employees':
-                        await handleQuery.viewTable(sqlEmployee);
+                        await selectQuery.selectFromEmployee();
                         break;
                     case 'Add Employee':
                         break;
                     case 'Update Employee Role':
                         break;
                     case 'View All Roles':
-                        await handleQuery.viewTable(sqlRole);
+                        await selectQuery.selectFromRole();
                         break;
                     case 'Add Role':
-                        await handleQuery.viewTable();
+                        const list = await handleQuery.viewTable();
                         const roleAns = await inquirer.prompt(roleQuestions);
                         break;
                     case 'View All Departments':
-                        await handleQuery.viewTable(sqlDepartment);
+                        await selectQuery.selectAllFromDepartment();
                         break;
                     case 'Add Department':
                         const deptAns = await inquirer.prompt(departmentQuestions)
