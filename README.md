@@ -12,7 +12,7 @@ You can find how the application works on this Video Recording:
 
 ## Credits
 
-The underlying technoligies used in this application is nodejs which uses these packages:
+The underlying technologies used in this application are nodejs and the packages used below:
 - [Inquirer](https://www.npmjs.com/package/inquirer)
 - [Mysql](https://www.npmjs.com/package/mysql2)
 - [cli-table3](https://www.npmjs.com/package/cli-table3)
