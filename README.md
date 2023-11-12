@@ -6,9 +6,9 @@ This application is an Employee tracker to manage a company's employee database 
 
 
 ## Link to video demo
-You can find how the application works on this [Video Recording](https://drive.google.com/file/d/1PFS8NoAJFhJP_PTUfWhkBH9S_YhEfCWo/view?usp=sharing)
+You can find how the application works on this Video Recording:
 
-[![A video thumbnail shows employee management application](./assets/employee_app.png)](ttps://drive.google.com/file/d/1PFS8NoAJFhJP_PTUfWhkBH9S_YhEfCWo/view?usp=sharing)
+[![A video thumbnail shows employee management application](./assets/employee_app.png)](https://drive.google.com/file/d/1PFS8NoAJFhJP_PTUfWhkBH9S_YhEfCWo/view?usp=sharing)
 
 ## Credits
 
