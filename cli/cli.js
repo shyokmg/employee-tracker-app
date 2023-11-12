@@ -103,8 +103,9 @@ class CLI {
                             },
                         ];
                         const updateRoleAns = await inquirer.prompt(updateRoleQ);
-                        await udpateQuery.updateRoleOfEmployee();
-                        console.log(`Updated ${updateRoleAns.employee}'s Role`);
+                        let employeeRoleID = await selectQuery.selectRoleIDFromRole(updateRoleAns.role)
+                        await udpateQuery.updateRoleOfEmployee(employeeRoleID, updateRoleAns.employee);
+                        // console.log(`Updated ${updateRoleAns.employee}'s Role`);
                         break;
                     case 'View All Roles':
                         await selectQuery.selectFromRole();
