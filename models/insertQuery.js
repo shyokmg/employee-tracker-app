@@ -1,5 +1,6 @@
 const Query = require('./query');
 
+// Handles all insert queries
 class InsertQuery extends Query {
     async insertIntoDepartment(data) {
         const sql = `INSERT INTO department (name) VALUES (?)`

@@ -1,5 +1,6 @@
 const Query = require('./query');
 
+// Handles all udpate queries
 class UpdateQuery extends Query {
     async updateRoleOfEmployee(role_id, name) {
         const sql = `UPDATE employee SET role_id = ${role_id} WHERE CONCAT(first_name, ' ', last_name) = '${name}'`;

@@ -1,6 +1,7 @@
 const Query = require('./query');
 const Table = require('cli-table3');
 
+// Handles all select queries
 class SelectQuery extends Query {
 
     async selectFromEmployee() {
@@ -33,7 +34,7 @@ class SelectQuery extends Query {
             rows.forEach(row => {
                 list.push(Object.values(row).toString());
             });
-            // console.log(list);
+            
             return list;
         } catch (err) {
             console.log('Error executing SELECT query:', err);
@@ -49,7 +50,7 @@ class SelectQuery extends Query {
             rows.forEach(row => {
                 list.push(Object.values(row).toString());
             });
-            // console.log(list);
+            
             return list;
         } catch (err) {
             console.log('Error executing SELECT query:', err);
@@ -65,7 +66,7 @@ class SelectQuery extends Query {
             rows.forEach(row => {
                 list.push(Object.values(row).toString());
             });
-            // console.log(list);
+            
             return list;
         } catch (err) {
             console.log('Error executing SELECT query:', err);
@@ -81,7 +82,7 @@ class SelectQuery extends Query {
             rows.forEach(row => {
                 list.push(Object.values(row).toString());
             });
-            // console.log(list);
+            
             return list;
         } catch (err) {
             console.log('Error executing SELECT query:', err);
@@ -150,7 +151,7 @@ class SelectQuery extends Query {
             throw err;
         }
     }
-
+    // Creates a table to output select queries
     renderTable(rows) {
         const table = new Table();
         const headers = Object.keys(rows[0]);

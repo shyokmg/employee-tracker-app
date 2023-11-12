@@ -1,6 +1,7 @@
 const mysql = require('mysql2/promise');
 const config = require('../config/connection.js');
 
+// Main class to handle queries db connections
 class Query {
     
     async query(sql, args) {
